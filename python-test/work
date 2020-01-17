@@ -1,0 +1,16 @@
+fp = open('info.txt','a+')
+
+while True:
+	is_register = False
+
+	account = input('请输入你的账号：')
+	if len(account) > 10:
+		print('你账号这么长？')
+		break
+	fp.seek(0,0)
+	for buf in fp:
+		file_account = buf.split(':')[0]
+		if file_account == account:
+			print('已经被注册，请重新输入！')
+			is_register = True
+			break
